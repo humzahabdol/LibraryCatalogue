@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryCatalogue", "LibraryCatalogue\LibraryCatalogue.csproj", "{ECE6FC5D-B603-4848-80C0-E6AB83BBBFD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryOrganizerDB", "LibraryOrganizerDB\LibraryOrganizerDB.csproj", "{DDA289C8-0266-41EF-9CA7-0E1B55C09D54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{32545C2C-59C4-4585-8A98-18E83315BABA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECE6FC5D-B603-4848-80C0-E6AB83BBBFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECE6FC5D-B603-4848-80C0-E6AB83BBBFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECE6FC5D-B603-4848-80C0-E6AB83BBBFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECE6FC5D-B603-4848-80C0-E6AB83BBBFD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA289C8-0266-41EF-9CA7-0E1B55C09D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA289C8-0266-41EF-9CA7-0E1B55C09D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA289C8-0266-41EF-9CA7-0E1B55C09D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA289C8-0266-41EF-9CA7-0E1B55C09D54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DDA289C8-0266-41EF-9CA7-0E1B55C09D54} = {32545C2C-59C4-4585-8A98-18E83315BABA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9D52A1D-0989-4B34-9F8B-50F69933EA0E}
+	EndGlobalSection
+EndGlobal
