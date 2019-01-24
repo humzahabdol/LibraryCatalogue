@@ -21,7 +21,6 @@ namespace LibraryCatalogue
                 var cardHoldersList = (from l in context.Cardholders select l).ToList();
                 var booksList = (from l in context.Books select l).ToList();
                 var checkoutLogList = (from l in context.CheckOutLogs select l).ToList();
-
             }
         }
     }
