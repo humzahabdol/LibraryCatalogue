@@ -54,8 +54,6 @@ namespace LibraryCatalogue.UI
             Login login = new Login(_librarianHelper,_searchClass,_sqlDbRepository);
             
             this.Content = login;
-
-
             
         }
 

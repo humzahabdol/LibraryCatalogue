@@ -16,6 +16,10 @@ namespace LibraryCatalogue.Helpers
         List<Cardholder> GetCardholders();
         List<Author> GetAuthors();
         List<Person> GetPeople();
-        
+        List<Book> GetBookByISBN(List<string> isbnlList);
+        Cardholder GetPersonByLibraryCardId(string cardId);
+        bool CreateNewCheckoutLog(int bookID, int cardholderID);
+
+
     }
 }

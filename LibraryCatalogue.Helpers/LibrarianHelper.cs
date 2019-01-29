@@ -61,11 +61,28 @@ namespace LibraryCatalogue.Helpers
             return bookList;
         }
 
+        public bool IsBookCheckOutable(Cardholder cardholder, List<Book> books)
+        {
+            var checkoutlogs = _sqlDbRepository.GetCheckOutLogs();
+            bool isAvailable = false;
+            foreach (var book in books)
+            {
+                var checkedOut = checkoutlogs.Count(x => x.BookID == book.BookID && x.CardholderID == cardholder.ID);
+                if (book.NumberOfCopies > checkedOut)
+                {
+                    isAvailable = true;
+                }
+
+                //TODO Business logic for when checked out log. When is it consider overdue?
+            }
+            return isAvailable;
+        }
     }
 
     public interface ILibrarianHelper
     {
         bool IsUserLogin(string userName, string password);
         List<Book> FilterBooks(string keywords);
+        bool IsBookCheckOutable(Cardholder cardholder, List<Book> books);
     }
 }

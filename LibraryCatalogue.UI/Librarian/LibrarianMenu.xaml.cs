@@ -23,7 +23,6 @@ namespace LibraryCatalogue.UI.Librarian
 
         private void Btn_searchbook_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Search Book
             HideElements();
             frm_LibraryMenu.Content = new SearchBook(_searchClass,_librarianHelper,_sqlDbRepository,true);
         }
@@ -31,6 +30,8 @@ namespace LibraryCatalogue.UI.Librarian
         private void Btn_checkinout_Click(object sender, RoutedEventArgs e)
         {
             HideElements();
+            frm_LibraryMenu.Content = new CheckInOrOut(_searchClass,_librarianHelper,_sqlDbRepository);
+
         }
 
         private void Btn_addbook_Click(object sender, RoutedEventArgs e)

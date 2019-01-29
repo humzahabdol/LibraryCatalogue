@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
+using System.Configuration;
+using System.Data;
 using LibraryCatalogue.Entities;
 using LibraryOrganizerDB;
 using Search;
@@ -19,6 +19,7 @@ namespace LibraryCatalogue.Helpers
         {
             _context = new LibraryContext();
             _searchClass = new SearchClass();
+
         }
 
         #region Get List
@@ -27,7 +28,6 @@ namespace LibraryCatalogue.Helpers
             var libcf = _context.Librarians.ToList();
             return ConvertLibCftoLibrarians(libcf);
         }
-
         public List<Person> GetPeople()
         {
             var personCf = _context.People.ToList();
@@ -55,7 +55,57 @@ namespace LibraryCatalogue.Helpers
         }
         #endregion
 
-        
+        public Person GetPersonById(int id)
+        {
+            var people = GetPeople();
+            foreach (var person in people)
+            {
+                if (person.PersonID == id)
+                {
+                    return person;
+                }
+            }
+            return null;
+        }
+        public List<Book> GetBookByISBN(List<string> isbnlList)
+        {
+            var books = GetBooks();
+            List<Book> bList = new List<Book>();
+            foreach (var book in books)
+            {
+                foreach (var isbn in isbnlList)
+                {
+                    if (book.ISBN == isbn)
+                    {
+                        bList.Add(book);
+                    }
+                }
+            }
+            return bList;
+        }
+        public Cardholder GetPersonByLibraryCardId(string cardId)
+        {
+            var cardholders = GetCardholders();
+            return cardholders.FirstOrDefault(x => x.LibraryCardID == cardId);
+        }
+
+        public bool CreateNewCheckoutLog(int bookID, int cardholderID)
+        {
+            //TODO test this.
+            bool isInserted = false;
+            var t = ConfigurationManager.ConnectionStrings["LibraryContext"].ConnectionString;
+            SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["LibraryContext"].ConnectionString);
+            cn.Open();
+            SqlCommand cmd = new SqlCommand(@"insert into CheckOutLog (BookID, CardholderID,CheckOutDate) values('" + $"{bookID},{cardholderID},{DateTime.Now}" + "')",cn);
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                isInserted = true;
+            }
+            cn.Close();
+            return isInserted;
+
+        }
 
         private List<Librarian> ConvertLibCftoLibrarians(List<LibrarianCF> libcf)
         {
@@ -178,25 +228,10 @@ namespace LibraryCatalogue.Helpers
 
             return books;
         }
-        public Author GetAuthorById(int id)
-        {
-            var authorcf = _context.Authors.ToList();
-            var authors = ConvertAuthorCFtoAuthors(authorcf);
-            foreach (var author in authors)
-            {
-                if (author.ID == id)
-                {
-                    return author;
-                }
-            }
-            return null;
-
-        }
 
         private bool IsBookAvailable(Book book)
         {
-            var checkouLogcf = _context.CheckOutLogs.ToList();
-            var checkoutlogList = ConvertCheckoutLogCdtoCheckOutLogs(checkouLogcf);
+            var checkoutlogList = GetCheckOutLogs();
             var foundBookInCheckOutLog = checkoutlogList.Where(x => x.BookID == book.BookID).Count();
             if (foundBookInCheckOutLog < book.NumberOfCopies)
             {
@@ -205,18 +240,6 @@ namespace LibraryCatalogue.Helpers
 
             return false;
         }
-        public Person GetPersonById(int id)
-        {
-            var peopleCF = _context.People.ToList();
-            var people = ConvertPersoncftoPerson(peopleCF);
-            foreach (var person in people)
-            {
-                if (person.PersonID == id)
-                {
-                    return person;
-                }
-            }
-            return null;
-        }
+
     }
 }
