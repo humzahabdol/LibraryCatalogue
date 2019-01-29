@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 namespace LibraryOrganizerDB
 {
     [Table("Authors")]
-    public class Author
+    public class AuthorCF
     {
         [Key,ForeignKey("Person")]
         public int ID { get; set; }
         public string Bio { get; set; }
         
 
-        public virtual Person Person { get; set; }
-        public virtual ICollection<Book> Books { get; set; }
+        public virtual PersonCF Person { get; set; }
+        public virtual ICollection<BookCF> Books { get; set; }
 
 
     }

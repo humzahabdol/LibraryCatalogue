@@ -54,9 +54,13 @@
     <Compile Include="SqlDbRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibraryCatalogue\LibraryCatalogue.csproj">
+    <ProjectReference Include="..\LibraryCatalogue.Entities\LibraryCatalogue.Entities.csproj">
+      <Project>{321DF368-3B4D-44CA-A4D8-65FC7EF2FE2E}</Project>
+      <Name>LibraryCatalogue.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibraryCatalogue\LibraryCatalogue.Console.csproj">
       <Project>{ece6fc5d-b603-4848-80c0-e6ab83bbbfd9}</Project>
-      <Name>LibraryCatalogue</Name>
+      <Name>LibraryCatalogue.Console</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryOrganizerDB\LibraryOrganizerDB.csproj">
       <Project>{DDA289C8-0266-41EF-9CA7-0E1B55C09D54}</Project>

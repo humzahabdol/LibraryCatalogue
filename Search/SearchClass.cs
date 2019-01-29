@@ -10,12 +10,16 @@ namespace Search
     {
         public bool Search(List<string> keywords, List<string> strings)
         {
+
             foreach (string keyword in keywords)
             {
                 string keywordUpper = keyword.ToUpper();
-                List<string> foundStrings = (from s in strings where s.Trim().ToUpper().Contains(keywordUpper) select s).ToList();
+                List<string> foundStrings = (from s in strings where s.Trim()
+                    .ToUpper()
+                    .Replace(" ","")
+                    .Contains(keywordUpper) select s).ToList();
                 if (foundStrings.Count == 0)
-                {
+                { 
                     return false;
                 }
             }
@@ -31,7 +35,7 @@ namespace Search
             {
                 if (word != string.Empty)
                 {
-                    keywords.Add(word);
+                    keywords.Add(word.Replace(" ",""));
                 }
             }
             return keywords;

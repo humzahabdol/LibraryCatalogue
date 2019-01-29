@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryCatalogue.Entities;
 using LibraryOrganizerDB;
 using Search;
 
@@ -37,15 +38,24 @@ namespace LibraryCatalogue.Helpers
             var keywordlist = _searchClass.SplitKeywords(keywords);
             var books = _sqlDbRepository.GetBooks();
             List<Book> bookList = new List<Book>();
+            List<string> properties = new List<string>();
+
             foreach (var book in books)
             {
-                var properties = book.GetType().GetProperties().Select(t=>t.ToString()).ToList();
-
+                properties.Add(book.Title);
+                properties.Add(book.FirstName);
+                properties.Add(book.LastName);
+                properties.Add(book.ISBN);
+                if (book.Subject != null)
+                {
+                    properties.Add(book.Subject);
+                }
                 bool isFound = _searchClass.Search(keywordlist, properties);
                 if (isFound)
                 {
                     bookList.Add(book);
                 }
+                properties.Clear();
             }
 
             return bookList;

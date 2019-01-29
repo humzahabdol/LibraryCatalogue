@@ -8,20 +8,18 @@ using System.Threading.Tasks;
 
 namespace LibraryOrganizerDB
 {
-    [Table("Cardholders")]
-    public class Cardholder
+    [Table("Librarians")]
+    public class LibrarianCF
     {
         [Key, ForeignKey("Person")]
         public int ID { get; set; }
         [Required,MaxLength(20)]
         public string Phone { get; set; }
-        [Required,MaxLength(50)]
-        public string LibraryCardID { get; set; }
+        [MaxLength(50)]
+        public string UserID { get; set; }
+        [MaxLength(50)]
+        public string Password { get; set; }
 
-
-        public virtual Person Person { get; set; }
-        public virtual ICollection<CheckOutLog> CheckOutLogs { get; set; }
-
-
+        public virtual PersonCF Person { get; set; }
     }
 }

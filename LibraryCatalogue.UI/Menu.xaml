@@ -5,12 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LibraryCatalogue.UI"
       mc:Ignorable="d"
-      Title="Menu" Height="525.641" Width="948.718">
+      Title="Menu" Height="550" Width="1191.487">
 
     <Grid>
-        <Frame x:Name="MainMenu" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="526" Margin="0,0,0,-0.5" VerticalAlignment="Top" Width="948"/>
-        <Button x:Name="btn_Patron" Content="Find Book" HorizontalAlignment="Left" Margin="170,216,0,0" VerticalAlignment="Top" Width="168" Height="77" Click="Btn_Patron_Click"/>
-        <Button x:Name="btn_LibrarianLogin" Content="Login" HorizontalAlignment="Left" Margin="382,216,0,0" VerticalAlignment="Top" Width="169" Height="77" Click="Btn_LibrarianLogin_Click"/>
-        <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Left" Margin="601,216,0,0" VerticalAlignment="Top" Width="168" Height="77"/>
+        <Frame x:Name="MainMenu" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="540" VerticalAlignment="Top" Width="1182"/>
+        <Button x:Name="btn_Patron" Content="Find Book" HorizontalAlignment="Left" Margin="312,215,0,0" VerticalAlignment="Top" Width="168" Height="77" Click="Btn_Patron_Click"/>
+        <Button x:Name="btn_LibrarianLogin" Content="Login" HorizontalAlignment="Left" Margin="524,215,0,0" VerticalAlignment="Top" Width="169" Height="77" Click="Btn_LibrarianLogin_Click"/>
+        <Button x:Name="btn_Exit" Content="Exit" HorizontalAlignment="Left" Margin="743,215,0,0" VerticalAlignment="Top" Width="168" Height="77"/>
     </Grid>
 </Page>

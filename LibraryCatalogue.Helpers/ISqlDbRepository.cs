@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryCatalogue.Entities;
 using LibraryOrganizerDB;
 
 namespace LibraryCatalogue.Helpers
@@ -15,5 +16,6 @@ namespace LibraryCatalogue.Helpers
         List<Cardholder> GetCardholders();
         List<Author> GetAuthors();
         List<Person> GetPeople();
+        
     }
 }

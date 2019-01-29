@@ -6,16 +6,16 @@
       xmlns:local="clr-namespace:LibraryCatalogue.UI.Librarian"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LibrarianMenu" Height="525.641" Width="948.718">
+      Title="LibrarianMenu" Height="525.641" Width="1209.47">
 
     <Grid>
-        <Label x:Name="lbl_libmenutitle" Content="Library Menu" HorizontalAlignment="Left" Margin="368,79,0,0" VerticalAlignment="Top" Height="43" Width="163" FontSize="26"/>
-        <Button x:Name="btn_searchbook" Content="Search Book" HorizontalAlignment="Left" Margin="52,166,0,0" VerticalAlignment="Top" Width="218" Height="65" Click="Btn_searchbook_Click"/>
-        <Button x:Name="btn_checkinout" Content="Check In/Out" HorizontalAlignment="Left" Margin="52,250,0,0" VerticalAlignment="Top" Width="218" Height="64" Click="Btn_checkinout_Click"/>
-        <Button x:Name="btn_addbook" Content="Add Book" HorizontalAlignment="Left" Margin="346,166,0,0" VerticalAlignment="Top" Width="217" Height="65" Click="Btn_addbook_Click"/>
-        <Button x:Name="btn_removebook" Content="Remove Book" HorizontalAlignment="Left" Margin="346,250,0,0" VerticalAlignment="Top" Width="217" Height="64" Click="Btn_removebook_Click"/>
-        <Button x:Name="btn_updatebook" Content="Update Book" HorizontalAlignment="Left" Margin="631,166,0,0" VerticalAlignment="Top" Width="217" Height="65" Click="Btn_updatebook_Click" RenderTransformOrigin="0.5,0.5"/>
-        <Frame x:Name="frm_LibraryMenu"  HorizontalAlignment="Left" Height="526" VerticalAlignment="Top" NavigationUIVisibility="Hidden" Width="948" Margin="0,0,0,-0.5" />
+        <Label x:Name="lbl_libmenutitle" Content="Library Menu" HorizontalAlignment="Left" Margin="519,125,0,0" VerticalAlignment="Top" Height="43" Width="163" FontSize="26"/>
+        <Button x:Name="btn_searchbook" Content="Search Book" HorizontalAlignment="Left" Margin="203,212,0,0" VerticalAlignment="Top" Width="218" Height="65" Click="Btn_searchbook_Click"/>
+        <Button x:Name="btn_checkinout" Content="Check In/Out" HorizontalAlignment="Left" Margin="203,296,0,0" VerticalAlignment="Top" Width="218" Height="64" Click="Btn_checkinout_Click"/>
+        <Button x:Name="btn_addbook" Content="Add Book" HorizontalAlignment="Left" Margin="497,212,0,0" VerticalAlignment="Top" Width="217" Height="65" Click="Btn_addbook_Click"/>
+        <Button x:Name="btn_removebook" Content="Remove Book" HorizontalAlignment="Left" Margin="497,296,0,0" VerticalAlignment="Top" Width="217" Height="64" Click="Btn_removebook_Click"/>
+        <Button x:Name="btn_updatebook" Content="Update Book" HorizontalAlignment="Left" Margin="782,212,0,0" VerticalAlignment="Top" Width="217" Height="65" Click="Btn_updatebook_Click" RenderTransformOrigin="0.5,0.5"/>
+        <Frame x:Name="frm_LibraryMenu" Height="526" VerticalAlignment="Top" NavigationUIVisibility="Hidden" Margin="0,-13,-13,0" />
 
     </Grid>
 </Page>

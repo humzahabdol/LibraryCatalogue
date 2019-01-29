@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LibraryCatalogue.Helpers;
 using LibraryCatalogue.UI.Librarian;
-using LibraryCatalogue.UI.Patron;
 using Search;
 
 namespace LibraryCatalogue.UI

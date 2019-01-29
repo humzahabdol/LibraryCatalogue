@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LibraryOrganizerDB
 {
     [Table("CheckOutLog")]
-    public class CheckOutLog
+    public class CheckOutLogCF
     {
         [Key]
         public int CheckOutLogID { get; set; }
@@ -20,7 +20,7 @@ namespace LibraryOrganizerDB
         [Required]
         public DateTime CheckOutDate { get; set; }
 
-        public virtual Book Book { get; set; }
-        public virtual Cardholder Cardholder { get; set; }
+        public virtual BookCF Book { get; set; }
+        public virtual CardholderCF Cardholder { get; set; }
     }
 }

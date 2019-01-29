@@ -48,14 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Author.cs" />
-    <Compile Include="Entities\Book.cs" />
-    <Compile Include="Entities\Cardholder.cs" />
-    <Compile Include="Entities\CheckOutLog.cs" />
-    <Compile Include="Entities\Librarian.cs" />
+    <Compile Include="Entities\AuthorCF.cs" />
+    <Compile Include="Entities\BookCF.cs" />
+    <Compile Include="Entities\CardholderCF.cs" />
+    <Compile Include="Entities\CheckOutLogCF.cs" />
+    <Compile Include="Entities\LibrarianCF.cs" />
     <Compile Include="LibraryContext.cs" />
     <Compile Include="LibraryInitializer.cs" />
-    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\PersonCF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadXml.cs" />
   </ItemGroup>

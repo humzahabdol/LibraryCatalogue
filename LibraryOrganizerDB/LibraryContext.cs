@@ -13,11 +13,11 @@ namespace LibraryOrganizerDB
         {
         }
 
-        public DbSet<Person> People { get; set; }
-        public DbSet<Librarian> Librarians { get; set; }
-        public DbSet<Author> Authors { get; set; }
-        public DbSet<Cardholder> Cardholders { get; set; }
-        public DbSet<Book> Books { get; set; }
-        public DbSet<CheckOutLog> CheckOutLogs { get; set; }
+        public DbSet<PersonCF> People { get; set; }
+        public DbSet<LibrarianCF> Librarians { get; set; }
+        public DbSet<AuthorCF> Authors { get; set; }
+        public DbSet<CardholderCF> Cardholders { get; set; }
+        public DbSet<BookCF> Books { get; set; }
+        public DbSet<CheckOutLogCF> CheckOutLogs { get; set; }
     }
 }

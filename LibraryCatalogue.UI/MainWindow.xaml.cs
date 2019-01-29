@@ -16,7 +16,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LibraryCatalogue.UI.Librarian;
 using LibraryCatalogue.Helpers;
-using LibraryCatalogue.UI.Patron;
 using Search;
 using Unity;
 
@@ -44,19 +43,9 @@ namespace LibraryCatalogue.UI
 
         private void LoadDB()
         {
-            //Database.SetInitializer<LibraryContext>(new LibraryInitializer());
-            
+            Database.SetInitializer<LibraryContext>(new LibraryInitializer());
+           
 
-                //TODO: How to do dependency inject for WPF/MVVM
-                var t = _sqlDbRepository.GetLibrarians();
-                var z = _sqlDbRepository.GetBooks();
-
-        }
-
-        private void Btn_Patron_Click(object sender, RoutedEventArgs e)
-        {
-            PatronSearch pS = new PatronSearch(_sqlDbRepository,_librarianHelper,_searchClass);
-            this.Content = pS;
         }
 
         private void Btn_LibrarianLogin_Click(object sender, RoutedEventArgs e)
@@ -66,9 +55,6 @@ namespace LibraryCatalogue.UI
             
             this.Content = login;
 
-
-            //NavigationService nav = NavigationService.GetNavigationService(this);
-            //nav.Navigate(new Uri("login.xaml",UriKind.RelativeOrAbsolute));
 
             
         }

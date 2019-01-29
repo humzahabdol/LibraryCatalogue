@@ -5,16 +5,50 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LibraryCatalogue.UI"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="SearchBook" Height="525.641" Width="948.718">
+      d:DesignHeight="450"
+      Title="SearchBook" Height="525.641" Width="1209.47">
 
-    <Grid Loaded="Grid_Loaded">
-        <TextBox x:Name="txtbx_keywords" HorizontalAlignment="Left" Height="23" Margin="119,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
-        <Label x:Name="lbl_search" Content="Search" HorizontalAlignment="Left" Margin="63,49,0,0" VerticalAlignment="Top" Width="51"/>
-        <ListBox x:Name="lstbx_book" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="357" Margin="63,123,0,0" VerticalAlignment="Top" Width="195"/>
-        <Button x:Name="btn_libSearch" Content="Button" HorizontalAlignment="Left" Margin="183,87,0,0" VerticalAlignment="Top" Width="75" Click="Btn_libSearch_Click"/>
-        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Margin="817,465,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Frame x:Name="frm_search" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="526" VerticalAlignment="Top" Width="948" Margin="0,0,0,-0.5"/>
+    <Grid Loaded="Grid_Loaded" Margin="10,10,10.5,-0.5">
+        <TextBox x:Name="txtbx_keywords" HorizontalAlignment="Left" Height="23" Margin="120,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="381"/>
+        <Label x:Name="lbl_search" Content="Search:" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top" Width="72"/>
+        <Button x:Name="btn_libSearch" Content="Search" HorizontalAlignment="Left" Margin="426,90,0,0" VerticalAlignment="Top" Width="75" Click="Btn_libSearch_Click"/>
+        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Margin="1083,341,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Frame x:Name="frm_search" NavigationUIVisibility="Hidden" Margin="0,-13,-13,0"/>
+        <ListView x:Name="lstview_book" HorizontalAlignment="Left" Height="359" Margin="30,126,0,0" VerticalAlignment="Top" Width="471" SelectionChanged="Lstview_book_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Book Details" />
+                    <GridViewColumn Header="IsAvailable" DisplayMemberBinding="{Binding IsAvailable}" />
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="lbl_NotFound" Content="No book was found." HorizontalAlignment="Left" Margin="153,90,0,0" VerticalAlignment="Top" Width="279" Height="31" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="lbl_dID" Content="Book ID:" HorizontalAlignment="Left" Margin="520,51,0,0" VerticalAlignment="Top" Width="136" Height="23"/>
+        <TextBox x:Name="txtbox_bookID" HorizontalAlignment="Left" Height="23" Margin="661,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_ISBN" Content="ISBN:" HorizontalAlignment="Left" Margin="520,89,0,0" VerticalAlignment="Top" Width="136" Height="23"/>
+        <TextBox x:Name="txtbox_ISBN" HorizontalAlignment="Left" Height="23" Margin="661,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_Title" Content="Title:" HorizontalAlignment="Left" Margin="520,130,0,0" VerticalAlignment="Top" Width="136" Height="23"/>
+        <TextBox x:Name="txtbox_title" HorizontalAlignment="Left" Height="23" Margin="661,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_firstName" Content="Author First Name:" HorizontalAlignment="Left" Margin="520,169,0,0" VerticalAlignment="Top" Width="136" Height="23"/>
+        <TextBox x:Name="txtbox_FirstName" HorizontalAlignment="Left" Height="23" Margin="661,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_authorLastName" Content="Author Last Name:" HorizontalAlignment="Left" Margin="520,209,0,0" VerticalAlignment="Top" Width="136" Height="24"/>
+        <TextBox x:Name="txtbox_authorLastName" HorizontalAlignment="Left" Height="24" Margin="661,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_NumPages" Content="Number Of Pages:" HorizontalAlignment="Left" Margin="520,250,0,0" VerticalAlignment="Top" Width="136" Height="38"/>
+        <TextBox x:Name="txtbox_numberOfPages" HorizontalAlignment="Left" Height="23" Margin="661,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_subject" Content="Subject:" HorizontalAlignment="Left" Margin="520,286,0,0" VerticalAlignment="Top" Width="136" Height="24"/>
+        <TextBox x:Name="txtbox_subject" HorizontalAlignment="Left" Height="24" Margin="661,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_description" Content="Description:" HorizontalAlignment="Left" Margin="845,48,0,0" VerticalAlignment="Top" Width="136" Height="23"/>
+        <TextBox x:Name="txtbox_Description" HorizontalAlignment="Left" Height="108" Margin="986,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_publisher" Content="Publisher:" HorizontalAlignment="Left" Margin="845,165,0,0" VerticalAlignment="Top" Width="136" Height="23"/>
+        <TextBox x:Name="txtbox_publisher" HorizontalAlignment="Left" Height="23" Margin="986,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_yearPublished" Content="Year Published:" HorizontalAlignment="Left" Margin="845,208,0,0" VerticalAlignment="Top" Width="136" Height="23"/>
+        <TextBox x:Name="txtbox_yearpublished" HorizontalAlignment="Left" Height="23" Margin="986,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_language" Content="Language:" HorizontalAlignment="Left" Margin="845,250,0,0" VerticalAlignment="Top" Width="136" Height="38"/>
+        <TextBox x:Name="txtbox_language" HorizontalAlignment="Left" Height="23" Margin="986,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_available" Content="Copies Available:" HorizontalAlignment="Left" Margin="845,286,0,0" VerticalAlignment="Top" Width="136" Height="42"/>
+        <TextBox x:Name="txtbox_available" HorizontalAlignment="Left" Height="24" Margin="986,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" IsEnabled="False"/>
+        <Label x:Name="lbl_whoami" Content="" HorizontalAlignment="Left" Margin="562,378,0,0" VerticalAlignment="Top" Height="90" Width="404" FontSize="48"/>
 
     </Grid>
 </Page>

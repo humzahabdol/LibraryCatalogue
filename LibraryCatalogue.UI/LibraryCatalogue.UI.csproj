@@ -77,9 +77,6 @@
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Patron\PatronSearch.xaml.cs">
-      <DependentUpon>PatronSearch.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SearchBook.xaml.cs">
       <DependentUpon>SearchBook.xaml</DependentUpon>
     </Compile>
@@ -110,10 +107,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Patron\PatronSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -150,6 +143,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibraryCatalogue.Entities\LibraryCatalogue.Entities.csproj">
+      <Project>{321DF368-3B4D-44CA-A4D8-65FC7EF2FE2E}</Project>
+      <Name>LibraryCatalogue.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibraryCatalogue.Helpers\LibraryCatalogue.Helpers.csproj">
       <Project>{4C907F12-57F3-489D-A8FB-7E74F85D4268}</Project>
       <Name>LibraryCatalogue.Helpers</Name>

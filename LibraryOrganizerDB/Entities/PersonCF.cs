@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LibraryOrganizerDB
 {
     [Table("People")]
-    public class Person
+    public class PersonCF
     {
         [Key]
         public int  PersonID { get; set; }
@@ -18,8 +18,8 @@ namespace LibraryOrganizerDB
         [Required, MaxLength(50)]
         public string LastName { get; set; }
 
-        public virtual Author Author { get; set; }
-        public virtual Librarian Librarian { get; set; }
-        public virtual Cardholder Cardholder { get; set; }
+        public virtual AuthorCF Author { get; set; }
+        public virtual LibrarianCF Librarian { get; set; }
+        public virtual CardholderCF Cardholder { get; set; }
     }
 }
