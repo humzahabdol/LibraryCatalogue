@@ -2,25 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
+using LibraryOrganizerDB.Entities;
 
 namespace LibraryOrganizerDB
 {
-     public class ReadXml
+    public class ReadXml
     {
-        public static List<BookCF> GetBooksDataFromXmlDoc()
+        public static List<Book> GetBooksDataFromXmlDoc()
         {
             var bookXml =
                 (from b in XDocument.Load(GetFullFileName("Books.xml")).Descendants("Book")
                  select b).ToList();
-            List<BookCF> books = new List<BookCF>(bookXml.Count);
+            List<Book> books = new List<Book>(bookXml.Count);
 
 
             foreach (var b in bookXml)
             {
-                BookCF book = new BookCF();
+                Book book = new Book();
 
                 book.AuthorID = int.Parse(b.Element("AuthorID")?.Value);
                 book.BookID = int.Parse(b.Element("BookID")?.Value);
@@ -57,14 +56,14 @@ namespace LibraryOrganizerDB
             return books;
         }
 
-        public static List<LibrarianCF> GetLibrariansDataFromXmlDoc()
+        public static List<Librarian> GetLibrariansDataFromXmlDoc()
         {
             var librarianxml = (from l in XDocument.Load(GetFullFileName("Librarians.xml")).Descendants("Librarian") select l).ToList();
-            List<LibrarianCF> librarians = new List<LibrarianCF>(librarianxml.Count);
+            List<Librarian> librarians = new List<Librarian>(librarianxml.Count);
 
             foreach (var l in librarianxml)
             {
-                LibrarianCF _librarian = new LibrarianCF();
+                Librarian _librarian = new Librarian();
 
                 _librarian.ID = int.Parse(l.Element("ID").Value);
                 _librarian.Password = l.Element("Password").Value;
@@ -77,15 +76,15 @@ namespace LibraryOrganizerDB
             return librarians;
         }
 
-        public static List<AuthorCF> GetAuthorsDataFromXmlDoc()
+        public static List<Author> GetAuthorsDataFromXmlDoc()
         {
             var authorxml =
                 (from a in (XDocument.Load(GetFullFileName("Authors.xml")).Descendants("Author"))
                  select a).ToList();
-            List<AuthorCF> authors = new List<AuthorCF>(authorxml.Count);
+            List<Author> authors = new List<Author>(authorxml.Count);
             foreach (var a in authorxml)
             {
-                AuthorCF _author = new AuthorCF();
+                Author _author = new Author();
                 _author.ID = int.Parse(a.Element("ID").Value);
                 foreach (var x in a.Elements())
                 {
@@ -103,18 +102,18 @@ namespace LibraryOrganizerDB
             return authors;
         }
 
-        public static List<CardholderCF> GetCardHoldersFromXmlDox()
+        public static List<Cardholder> GetCardHoldersFromXmlDox()
         {
             var cardHolderXML =
                 (from c in (XDocument.Load(GetFullFileName("Cardholders.xml")).Descendants("Cardholder")) select c)
                 .ToList();
-            List<CardholderCF> _cardHolders = new List<CardholderCF>(cardHolderXML.Count);
+            List<Cardholder> _cardHolders = new List<Cardholder>(cardHolderXML.Count);
 
-            CardholderCF _cardHolder;
+            Cardholder _cardHolder;
 
             foreach (var c in cardHolderXML)
             {
-                _cardHolder = new CardholderCF();
+                _cardHolder = new Cardholder();
                 _cardHolder.LibraryCardID = c.Element("LibraryCardID").Value;
                 _cardHolder.Phone = c.Element("Phone").Value;
                 _cardHolder.ID = int.Parse(c.Element("ID").Value);
@@ -125,15 +124,15 @@ namespace LibraryOrganizerDB
             return _cardHolders;
         }
 
-        public static List<CheckOutLogCF> GetCheckOutLogsFromXmlDoc()
+        public static List<CheckOutLog> GetCheckOutLogsFromXmlDoc()
         {
             var checkOutLogXml = (from co in (XDocument.Load(GetFullFileName("CheckOutLog.xml")).Descendants("CheckOutLog")) select co)
                 .ToList();
-            List<CheckOutLogCF> checkOutLogs = new List<CheckOutLogCF>(checkOutLogXml.Count);
+            List<CheckOutLog> checkOutLogs = new List<CheckOutLog>(checkOutLogXml.Count);
 
             foreach (var c in checkOutLogXml)
             {
-                var _checkOutLog = new CheckOutLogCF();
+                var _checkOutLog = new CheckOutLog();
                 _checkOutLog.CardholderID = int.Parse(c.Element("CardholderID").Value);
                 _checkOutLog.BookID = int.Parse(c.Element("BookID").Value);
                 _checkOutLog.CheckOutDate = DateTime.Parse(c.Element("CheckOutDate").Value);
@@ -144,13 +143,13 @@ namespace LibraryOrganizerDB
             return checkOutLogs;
         }
 
-        public static List<PersonCF> GetPeopleFromXmlDoc()
+        public static List<Person> GetPeopleFromXmlDoc()
         {
             var peopleXML = (from p in (XDocument.Load(GetFullFileName("People.xml")).Descendants("Person")) select p).ToList();
-            List<PersonCF> people = new List<PersonCF>(peopleXML.Count);
+            List<Person> people = new List<Person>(peopleXML.Count);
             foreach (var p in peopleXML)
             {
-                var _people = new PersonCF();
+                var _people = new Person();
                 _people.FirstName = p.Element("FirstName").Value;
                 _people.LastName = p.Element("LastName").Value;
                 _people.PersonID = int.Parse(p.Element("PersonID").Value);

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LibraryOrganizerDB")]
+[assembly: AssemblyTitle("LibraryInfoCatalogue.Helper")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LibraryOrganizerDB")]
+[assembly: AssemblyProduct("LibraryInfoCatalogue.Helper")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("78c23bad-1140-4be2-b32b-6730757c7995")]
+[assembly: Guid("062adb6c-d389-492c-a333-4927f3881b45")]
 
 // Version information for an assembly consists of the following four values:
 //

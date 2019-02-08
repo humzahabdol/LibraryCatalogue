@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{78C23BAD-1140-4BE2-B32B-6730757C7995}</ProjectGuid>
+    <ProjectGuid>{062ADB6C-D389-492C-A333-4927F3881B45}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LibraryOrganizerDB</RootNamespace>
-    <AssemblyName>LibraryOrganizerDB</AssemblyName>
+    <RootNamespace>LibraryInfoCatalogue.Helper</RootNamespace>
+    <AssemblyName>LibraryInfoCatalogue.Helper</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,24 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Author.cs" />
-    <Compile Include="Entities\Book.cs" />
-    <Compile Include="Entities\BookExtension.cs" />
-    <Compile Include="Entities\Cardholder.cs" />
-    <Compile Include="Entities\CheckOutLog.cs" />
-    <Compile Include="Entities\Librarian.cs" />
-    <Compile Include="Entities\Person.cs" />
-    <Compile Include="LibraryContext.cs" />
-    <Compile Include="LibraryInitializer.cs" />
+    <Compile Include="BusinessClass\BookHelper.cs" />
+    <Compile Include="BusinessClass\LibrarianHelper.cs" />
+    <Compile Include="DataAccessLayer\AuthorRepository.cs" />
+    <Compile Include="DataAccessLayer\BookRepository.cs" />
+    <Compile Include="DataAccessLayer\CardholderRepository.cs" />
+    <Compile Include="DataAccessLayer\CheckOutLogRepository.cs" />
+    <Compile Include="DataAccessLayer\IGenericSqlRepository.cs" />
+    <Compile Include="DataAccessLayer\LibrarianRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReadXml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryOrganizerDB\LibraryOrganizerDB.csproj">
+      <Project>{78C23BAD-1140-4BE2-B32B-6730757C7995}</Project>
+      <Name>LibraryOrganizerDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Xml\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
