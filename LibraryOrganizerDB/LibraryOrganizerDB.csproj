@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="Entities\Author.cs" />
     <Compile Include="Entities\Book.cs" />
-    <Compile Include="Entities\BookExtension.cs" />
     <Compile Include="Entities\Cardholder.cs" />
     <Compile Include="Entities\CheckOutLog.cs" />
     <Compile Include="Entities\Librarian.cs" />
@@ -65,6 +64,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="EntitiesExtension\" />
     <Folder Include="Xml\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -62,10 +62,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="LibraryMenu.xaml.cs">
+    <Compile Include="Librarian\CheckInOrOut.xaml.cs">
+      <DependentUpon>CheckInOrOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Librarian\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Librarian\LibraryMenu.xaml.cs">
       <DependentUpon>LibraryMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="Librarian\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Menu.xaml.cs">
@@ -74,11 +80,19 @@
     <Compile Include="SearchBook.xaml.cs">
       <DependentUpon>SearchBook.xaml</DependentUpon>
     </Compile>
-    <Page Include="LibraryMenu.xaml">
+    <Page Include="Librarian\CheckInOrOut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Login.xaml">
+    <Page Include="Librarian\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Librarian\LibraryMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Librarian\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LibraryOrganizerDB.Entities
 {
     [Table("Books")]
-    public partial class Book
+    public class Book
     {
         [Key]
         public int BookID { get; set; }

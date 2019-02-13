@@ -20,11 +20,12 @@ namespace LibraryInfoCatalogue.Helper.BusinessClass
             List<Book> booklist = new List<Book>();
             foreach (var keyword in keywords)
             {
-                var books = _bookSqlRepository.GetAll().Where(x => x.Title?.Replace(" ","") == keyword ||
-                                                                   x.Author.Person.FirstName == keyword ||
-                                                                   x.Author.Person.LastName == keyword ||
-                                                                   x.Subject?.Replace(" ","") == keyword ||
-                                                                   x.ISBN == keyword).Select(x => x).ToList();
+                var lowerKeyword = keyword.ToLower();
+                var books = _bookSqlRepository.GetAll().Where(x => x.Title?.ToLower().Replace(" ","") == lowerKeyword ||
+                                                                   x.Author.Person.FirstName.ToLower() == lowerKeyword ||
+                                                                   x.Author.Person.LastName.ToLower() == lowerKeyword ||
+                                                                   x.Subject?.ToLower().Replace(" ","") == lowerKeyword ||
+                                                                   x.ISBN.ToLower() == lowerKeyword).Select(x => x).ToList();
                 booklist = books;
             }
 
@@ -58,7 +59,7 @@ namespace LibraryInfoCatalogue.Helper.BusinessClass
             return "No";
         }
 
-        private List<string> SplitKeywords(string s)
+        public List<string> SplitKeywords(string s)
         {
             char[] delimiters = { ';' };
             string[] words = s.Split(delimiters);
@@ -80,5 +81,6 @@ namespace LibraryInfoCatalogue.Helper.BusinessClass
         bool CheckOutBook(CheckOutLog checkOutLog);
         string CanCheckOutBook(Book book);
         int CountAvailable(Book book);
+        List<string> SplitKeywords(string s);
     }
 }

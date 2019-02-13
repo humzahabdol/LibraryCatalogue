@@ -21,5 +21,10 @@ namespace LibraryOrganizerDB.Entities
         public virtual Author Author { get; set; }
         public virtual Librarian Librarian { get; set; }
         public virtual Cardholder Cardholder { get; set; }
+
+        public override string ToString()
+        {
+            return $"ID: {PersonID}, Full Name: {FirstName} {LastName}";
+        }
     }
 }

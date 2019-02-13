@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LibraryInfoCatalogue.Helper.BusinessClass;
 
 namespace LibraryInfoCatalogue.UI
 {
@@ -20,29 +21,23 @@ namespace LibraryInfoCatalogue.UI
     /// </summary>
     public partial class Menu : Page
     {
+        private readonly ViewHelper _viewHelper;
         public Menu()
         {
             InitializeComponent();
+            _viewHelper = new ViewHelper();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
+            _viewHelper.Hide(containerCanvas);
             SearchBook searchBook = new SearchBook(false);
             frm_menu.Content = searchBook;
-        }
-        private void Hide()
-        {
-            foreach (Control ctl in containerCanvas.Children)
-            {
-                if (ctl.GetType() == typeof(Button))
-                    ((Button)ctl).Visibility = Visibility.Collapsed;
-            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Hide();
+            _viewHelper.Hide(containerCanvas);
             Login login = new Login();
             frm_menu.Content = login;
         }

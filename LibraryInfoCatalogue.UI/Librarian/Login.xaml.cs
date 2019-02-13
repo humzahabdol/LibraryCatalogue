@@ -22,9 +22,11 @@ namespace LibraryInfoCatalogue.UI
     public partial class Login : Page
     {
         private readonly LibrarianHelper _librarianHelper;
+        private readonly ViewHelper _viewHelper;
         public Login()
         {
             InitializeComponent();
+            _viewHelper = new ViewHelper();
             _librarianHelper = new LibrarianHelper();
             lbl_error.Visibility = Visibility.Hidden;
         }
@@ -36,27 +38,11 @@ namespace LibraryInfoCatalogue.UI
                 lbl_error.Visibility = Visibility.Hidden;
                 LibraryMenu libraryMenu = new LibraryMenu();
                 frm_login.Content = libraryMenu;
-                Hide();
+                _viewHelper.Hide(containerCanvas);
             }
             else
             {
                 lbl_error.Visibility = Visibility.Visible;
-            }
-        }
-
-        private void Hide()
-        {
-            foreach (Control ctl in containerCanvas.Children)
-            {
-
-                if (ctl.GetType() == typeof(TextBox))
-                    ((TextBox)ctl).Visibility = Visibility.Collapsed;
-                if (ctl.GetType() == typeof(Label))
-                    ((Label)ctl).Visibility = Visibility.Collapsed;
-                if (ctl is PasswordBox box)
-                    box.Visibility = Visibility.Collapsed;
-                if (ctl.GetType() == typeof(Button))
-                    ((Button)ctl).Visibility = Visibility.Collapsed;
             }
         }
     }

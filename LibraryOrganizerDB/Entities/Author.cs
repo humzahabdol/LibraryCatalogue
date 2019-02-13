@@ -10,7 +10,7 @@ using LibraryOrganizerDB.Entities;
 namespace LibraryOrganizerDB
 {
     [Table("Authors")]
-    public class Author
+    public partial class Author
     {
         [Key, ForeignKey("Person")]
         public int ID { get; set; }
@@ -20,6 +20,10 @@ namespace LibraryOrganizerDB
         public virtual Person Person { get; set; }
         public virtual ICollection<Book> Books { get; set; }
 
+        public override string ToString()
+        {
+            return $"{Person.ToString()}";
+        }
 
     }
 }

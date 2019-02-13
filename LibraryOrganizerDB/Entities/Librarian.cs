@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LibraryOrganizerDB.Entities
 {
     [Table("Librarians")]
-    public class Librarian
+    public class Librarian 
     {
         [Key, ForeignKey("Person")]
         public int ID { get; set; }
@@ -21,5 +21,10 @@ namespace LibraryOrganizerDB.Entities
         public string Password { get; set; }
 
         public virtual Person Person { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Person.ToString()}, Phone: {Phone}";
+        }
     }
 }

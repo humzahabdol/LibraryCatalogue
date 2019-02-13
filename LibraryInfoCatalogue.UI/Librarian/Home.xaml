@@ -1,0 +1,45 @@
+﻿<Page x:Class="LibraryInfoCatalogue.UI.Librarian.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibraryInfoCatalogue.UI.Librarian"
+      mc:Ignorable="d"
+      Title="Home" Height="505.846" Width="940.846">
+
+    <Grid Margin="22,11,2,-1">
+        <Frame x:Name="frm_libraryMenu" Height="507" VerticalAlignment="Top" Margin="9,0,0,-11" HorizontalAlignment="Left" Width="906"/>
+        <ListView x:Name="listview_librarians" HorizontalAlignment="Left" Height="177" Margin="10,52,0,0" VerticalAlignment="Top" Width="358">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Librarian Details" DisplayMemberBinding="{Binding Display}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="listview_books"  HorizontalAlignment="Left" Height="177" Margin="408,52,0,0" VerticalAlignment="Top" Width="338">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Book Details" DisplayMemberBinding="{Binding Display}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="listview_authors"  HorizontalAlignment="Left" Height="172" Margin="10,290,0,0" VerticalAlignment="Top" Width="364">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Author Details" DisplayMemberBinding="{Binding Display}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="listview_cardholders" HorizontalAlignment="Left" Height="172" Margin="412,288,0,0" VerticalAlignment="Top" Width="343">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Cardholder Details" DisplayMemberBinding="{Binding Display}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Librarian Detail" HorizontalAlignment="Left" Margin="152,21,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Book Detail" HorizontalAlignment="Left" Margin="521,17,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Author Detail" HorizontalAlignment="Left" Margin="152,259,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Cardholder Detail" HorizontalAlignment="Left" Margin="534,259,0,0" VerticalAlignment="Top" Width="121"/>
+    </Grid>
+</Page>

@@ -5,13 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LibraryInfoCatalogue.UI"
       mc:Ignorable="d" 
-      d:DesignHeight="647.594" d:DesignWidth="1044.962"
+      d:DesignHeight="507" d:DesignWidth="965"
       Title="Menu">
 
     <Grid x:Name="containerCanvas">
-        <Frame x:Name="frm_menu" NavigationUIVisibility="Hidden"  HorizontalAlignment="Left" Height="647.594" VerticalAlignment="Top" Width="1044.962"/>
-        <Button Content="Find" HorizontalAlignment="Left" Margin="260,215,0,0" VerticalAlignment="Top" Width="122" Height="57" Click="Button_Click"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="429,215,0,0" VerticalAlignment="Top" Width="122" Height="57" Click="Button_Click_1"/>
+        <Frame x:Name="frm_menu" NavigationUIVisibility="Hidden"  HorizontalAlignment="Left" Height="507" VerticalAlignment="Top" Width="965"/>
+        <Button Content="Find" HorizontalAlignment="Left" Margin="273,245,0,0" VerticalAlignment="Top" Width="122" Height="57" Click="Button_Click"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="529,245,0,0" VerticalAlignment="Top" Width="122" Height="57" Click="Button_Click_1"/>
 
     </Grid>
 </Page>

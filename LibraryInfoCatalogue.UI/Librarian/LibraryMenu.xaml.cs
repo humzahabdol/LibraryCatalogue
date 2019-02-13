@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LibraryInfoCatalogue.Helper.BusinessClass;
+using LibraryInfoCatalogue.UI.Librarian;
 
 namespace LibraryInfoCatalogue.UI
 {
@@ -20,32 +22,34 @@ namespace LibraryInfoCatalogue.UI
     /// </summary>
     public partial class LibraryMenu : Page
     {
+        private readonly ViewHelper _viewHelper;
         public LibraryMenu()
         {
+            _viewHelper = new ViewHelper();
             InitializeComponent();
+            Home home = new Home();
+            frm_libraryMenu.Content = home;
         }
 
         private void Btn_searchBook_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
             SearchBook searchBook = new SearchBook(true);
             frm_libraryMenu.Content = searchBook;
         }
 
-        private void Hide()
+        private void Btn_logout_Click(object sender, RoutedEventArgs e)
         {
-            foreach (Control ctl in containerCanvas.Children)
-            {
+            _viewHelper.Hide(containerCanvas);
+            frm_libraryMenu.Visibility = Visibility.Collapsed;
+            Menu menu = new Menu();
+            frm_gotomenu.Content = menu;
+        }
 
-                if (ctl.GetType() == typeof(TextBox))
-                    ((TextBox)ctl).Visibility = Visibility.Collapsed;
-                if (ctl.GetType() == typeof(Label))
-                    ((Label)ctl).Visibility = Visibility.Collapsed;
-                if (ctl.GetType() == typeof(ListView))
-                    ((ListView)ctl).Visibility = Visibility.Collapsed;
-                if (ctl.GetType() == typeof(Button))
-                    ((Button)ctl).Visibility = Visibility.Collapsed;
-            }
+        private void Btn_home_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Home home = new Home();
+            frm_libraryMenu.Content = home;
         }
     }
 }

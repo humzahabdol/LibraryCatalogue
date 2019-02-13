@@ -21,7 +21,10 @@ namespace LibraryOrganizerDB.Entities
 
         public virtual Person Person { get; set; }
         public virtual ICollection<CheckOutLog> CheckOutLogs { get; set; }
-
+        public override string ToString()
+        {
+            return $"{Person.ToString()}, Library Card ID: {LibraryCardID}";
+        }
 
     }
 }
