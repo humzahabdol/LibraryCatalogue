@@ -31,6 +31,11 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
 
         public Book Add(Book libEntity)
         {
+            DbEntityEntry dbEntityEntry = _context.Entry(libEntity);
+            if (dbEntityEntry != null && dbEntityEntry.State != EntityState.Detached)
+            {
+                dbEntityEntry.State = EntityState.Added;
+            }
             var dbset = _context.Set<Book>();
             dbset.Add(libEntity);
             _context.SaveChanges();
@@ -51,7 +56,7 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
 
             if (bookInDb != null)
             {
-                bookInDb = book;
+                _context.Entry(bookInDb).CurrentValues.SetValues(book);
                 _context.SaveChanges();
                 return true;
             }

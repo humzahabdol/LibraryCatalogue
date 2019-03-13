@@ -1,21 +1,11 @@
-﻿using LibraryInfoCatalogue.Helper.DataAccessLayer;
+﻿using LibraryInfoCatalogue.Helper.BusinessClass;
+using LibraryInfoCatalogue.Helper.DataAccessLayer;
+using LibraryOrganizerDB;
+using LibraryOrganizerDB.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using LibraryInfoCatalogue.Helper.BusinessClass;
-using LibraryOrganizerDB.Entities;
-using LibraryOrganizerDB;
 
 namespace LibraryInfoCatalogue.UI.Librarian
 {
@@ -94,21 +84,28 @@ namespace LibraryInfoCatalogue.UI.Librarian
                     .FirstOrDefault();
                 var searchDisplay = new SearchDisplay();
                 var hasOverDue = "No";
-                if (!_librarianHelper.CanCheckOut(checkoutlog.Book, ch.ID))
-                {
-                    hasOverDue = "Yes";
-                }
-                searchDisplay.Display = ch.ToString() + $"Book ID: {checkoutlog.BookID}, " +
-                                        $"ISBN: {checkoutlog.Book.ISBN}, " +
-                                        $"Title: {checkoutlog.Book.Title}, " +
-                                        $"Check Out Date: {checkoutlog.CheckOutDate.ToString("MM/dd/yyyy")}," +
-                                        $"Has Over Due: {hasOverDue}";
+
+                searchDisplay.Display = ch.ToString();
                 searchDisplay.Person = ch.Person;
-                searchDisplay.Book = checkoutlog.Book;
+                if (checkoutlog != null)
+                {
+                    //TODO: Check if this is returning false
+                    if (_librarianHelper.CanCheckOut(checkoutlog.Book, ch.ID))
+                    {
+                        hasOverDue = "Yes";
+                    }
+                    searchDisplay.Display += $"Book ID: {checkoutlog.BookID}, " +
+                                            $"ISBN: {checkoutlog.Book.ISBN}, " +
+                                            $"Title: {checkoutlog.Book.Title}, " +
+                                            $"Check Out Date: {checkoutlog.CheckOutDate.ToString("MM/dd/yyyy")}," +
+                                            $"Has Over Due: {hasOverDue}";
+                    
+                    searchDisplay.Book = checkoutlog.Book;
+                }
                 searchDisplays.Add(searchDisplay);
             }
 
-            return searchDisplays.OrderBy(x=>x.Person.LastName).OrderBy(x=>x.Person.FirstName).OrderBy(x=>x.Book.Title).ToList();
+            return searchDisplays.OrderBy(x=>x.Person.LastName).OrderBy(x=>x.Person.FirstName).ToList();
         }
         private List<SearchDisplay> ConvertAuthorToSearchDisplay(List<Author> authors)
         {
@@ -117,11 +114,15 @@ namespace LibraryInfoCatalogue.UI.Librarian
             {
                 var book = _bookRepository.GetAll().Where(x => x.AuthorID == author.ID).FirstOrDefault();
                 var searchDisplay = new SearchDisplay();
-                searchDisplay.Display = author.ToString() +
-                                        $", Book Id: {book.BookID}, ISBN: {book.ISBN}, Title: {book.Title}, Publisher: {book.Publisher}";
-                searchDisplay.Book = book;
-                searchDisplay.Person = author.Person;
-                searchDisplays.Add(searchDisplay);
+                if (book != null)
+                {
+                    searchDisplay.Display = author.ToString() +
+                                            $", Book Id: {book.BookID}, ISBN: {book.ISBN}, Title: {book.Title}, Publisher: {book.Publisher}";
+                    searchDisplay.Book = book;
+                    searchDisplay.Person = author.Person;
+                    searchDisplays.Add(searchDisplay);
+                }
+                
             }
 
             return searchDisplays.OrderBy(x => x.Person.LastName)

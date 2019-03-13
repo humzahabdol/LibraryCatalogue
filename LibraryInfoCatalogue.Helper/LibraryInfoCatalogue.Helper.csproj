@@ -52,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessClass\BookHelper.cs" />
+    <Compile Include="BusinessClass\ExceptionHelper.cs" />
     <Compile Include="BusinessClass\LibrarianHelper.cs" />
+    <Compile Include="DataAccessLayer\PersonRepository.cs" />
     <Compile Include="ViewHelpers\SearchDisplay.cs" />
     <Compile Include="ViewHelpers\ViewHelper.cs" />
     <Compile Include="DataAccessLayer\AuthorRepository.cs" />

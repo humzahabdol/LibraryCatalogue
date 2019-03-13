@@ -1,6 +1,7 @@
 ﻿using LibraryOrganizerDB;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace LibraryInfoCatalogue.Helper.DataAccessLayer
@@ -26,6 +27,11 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
 
         public Author Add(Author libEntity)
         {
+            DbEntityEntry dbEntityEntry = _context.Entry(libEntity);
+            if (dbEntityEntry != null && dbEntityEntry.State != EntityState.Detached)
+            {
+                dbEntityEntry.State = EntityState.Added;
+            }
             var dbset = _context.Set<Author>();
             dbset.Add(libEntity);
             _context.SaveChanges();
@@ -45,7 +51,8 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
                 _context.Authors.SingleOrDefault(a => a.ID == author.ID);
             if (authorInDb != null)
             {
-                authorInDb = author;
+                //authorInDb = author;
+                _context.Entry(authorInDb).CurrentValues.SetValues(author);
                 _context.SaveChanges();
                 return true;
             }

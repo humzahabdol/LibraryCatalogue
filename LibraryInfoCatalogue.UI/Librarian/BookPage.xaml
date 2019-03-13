@@ -1,0 +1,49 @@
+﻿<Page x:Class="LibraryInfoCatalogue.UI.Librarian.BookPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d" 
+      d:DesignHeight="507" d:DesignWidth="850"
+      Title="BookPage">
+
+    <Grid x:Name="containerCanvas">
+        <Frame Content="" HorizontalAlignment="Left" Height="507" VerticalAlignment="Top" Width="849"/>
+        <Label Content="ISBN: " HorizontalAlignment="Left" Margin="27,47,0,0" VerticalAlignment="Top" Width="61"/>
+        <Label Content="Title:" HorizontalAlignment="Left" Margin="29,87,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Number Pages:" HorizontalAlignment="Left" Margin="30,129,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Subject:" HorizontalAlignment="Left" Margin="30,169,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Description: " HorizontalAlignment="Left" Margin="30,209,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Publisher:" HorizontalAlignment="Left" Margin="30,253,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Year Published" HorizontalAlignment="Left" Margin="30,293,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Language" HorizontalAlignment="Left" Margin="30,333,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Number of Copies:" HorizontalAlignment="Left" Margin="29,379,0,0" VerticalAlignment="Top" Width="116"/>
+        <TextBox x:Name="txt_isbn" HorizontalAlignment="Left" Height="23" Margin="150,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="txt_title" HorizontalAlignment="Left" Height="23" Margin="151,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="txt_numpages" HorizontalAlignment="Left" Height="23" Margin="151,133,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="txt_subject" HorizontalAlignment="Left" Height="23" Margin="151,171,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="txt_description" HorizontalAlignment="Left" Height="23" Margin="152,212,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="txt_publisher" HorizontalAlignment="Left" Height="23" Margin="153,253,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="txt_yearpublished" HorizontalAlignment="Left" Height="23" Margin="155,289,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="txt_language" HorizontalAlignment="Left" Height="23" Margin="155,335,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="txt_numberofcopies" HorizontalAlignment="Left" Height="23" Margin="195,379,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="56" TextAlignment="Center"/>
+        <Label Content="Search by ISBN:" HorizontalAlignment="Left" Margin="407,50,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txt_search" HorizontalAlignment="Left" Height="23" Margin="517,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149"/>
+        <Label Content="Please Enter ISBN for the Searching for a book." HorizontalAlignment="Left" Margin="406,14,0,0" VerticalAlignment="Top" Width="263" Height="32"/>
+        <ListView x:Name="lstview_books" HorizontalAlignment="Left" Height="290" Margin="414,101,0,0" VerticalAlignment="Top" Width="387" SelectionChanged="Lstview_books_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Book Details" DisplayMemberBinding="{Binding Display}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Left" Margin="225,455,0,0" VerticalAlignment="Top" Width="75" Click="Btn_add_Click"/>
+        <Button x:Name="btn_update" Content="Update" HorizontalAlignment="Left" Margin="123,456,0,0" VerticalAlignment="Top" Width="75" Click="Btn_update_Click"/>
+        <Button x:Name="btn_submit" Content="Submit" HorizontalAlignment="Left" Margin="708,54,0,0" VerticalAlignment="Top" Width="75" Click="Btn_submit_Click"/>
+        <Button x:Name="btn_removeCopy" Content="-" HorizontalAlignment="Left" Margin="154,381,0,0" VerticalAlignment="Top" Width="33" Click="Btn_removeCopy_Click" />
+        <Button x:Name="btn_addCopy" Content="+" HorizontalAlignment="Left" Margin="264,381,0,0" VerticalAlignment="Top" Width="33" Click="Btn_addCopy_Click"/>
+        <Label x:Name="lbl_notFound" Content="Book not found" HorizontalAlignment="Left" Margin="517,78,0,0" VerticalAlignment="Top" Width="300" Foreground="#FFFD0000"/>
+        <Label x:Name="lbl_update" Content="Label" HorizontalAlignment="Left" Margin="124,405,0,0" VerticalAlignment="Top" Width="178" Background="#00000000" Foreground="#FFF90606" Height="44"/>
+        <Button x:Name="btn_delete" Content="Delete" HorizontalAlignment="Left" Margin="26,456,0,0" VerticalAlignment="Top" Width="75" Click="Btn_delete_Click"/>
+    </Grid>
+</Page>

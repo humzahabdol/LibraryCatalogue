@@ -31,12 +31,16 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
 
         public CheckOutLog Add(CheckOutLog libEntity)
         {
+            DbEntityEntry dbEntityEntry = _context.Entry(libEntity);
+            if (dbEntityEntry != null && dbEntityEntry.State != EntityState.Detached)
+            {
+                dbEntityEntry.State = EntityState.Added;
+            }
             var newDbSet = _context.Set<CheckOutLog>();
             newDbSet.Add(libEntity);
             _context.SaveChanges();
             return libEntity;
         }
-
         public void Delete(int id)
         {
             var checkOutLog = _dbSet.Find(id);
@@ -50,7 +54,9 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
                 _context.CheckOutLogs.SingleOrDefault(cl => cl.CheckOutLogID == checkOutLog.CheckOutLogID);
             if (checkoutLoginDB != null)
             {
-                checkoutLoginDB = checkOutLog;
+                //checkoutLoginDB = checkOutLog;
+                _context.Entry(checkoutLoginDB).CurrentValues.SetValues(checkOutLog);
+
                 _context.SaveChanges();
                 return true;
             }

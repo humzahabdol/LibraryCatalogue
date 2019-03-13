@@ -62,8 +62,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Librarian\AddBook.xaml.cs">
+      <DependentUpon>AddBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Librarian\BookPage.xaml.cs">
+      <DependentUpon>BookPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Librarian\CheckInOrOut.xaml.cs">
       <DependentUpon>CheckInOrOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Librarian\DeleteBook.xaml.cs">
+      <DependentUpon>DeleteBook.xaml</DependentUpon>
     </Compile>
     <Compile Include="Librarian\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -80,9 +89,21 @@
     <Compile Include="SearchBook.xaml.cs">
       <DependentUpon>SearchBook.xaml</DependentUpon>
     </Compile>
+    <Page Include="Librarian\AddBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Librarian\BookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Librarian\CheckInOrOut.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Librarian\DeleteBook.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Librarian\Home.xaml">
       <SubType>Designer</SubType>
@@ -155,6 +176,9 @@
       <Project>{78C23BAD-1140-4BE2-B32B-6730757C7995}</Project>
       <Name>LibraryOrganizerDB</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

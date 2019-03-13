@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryInfoCatalogue.Consol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryInfoCatalogue.UI", "LibraryInfoCatalogue.UI\LibraryInfoCatalogue.UI.csproj", "{9833C494-159E-4B0B-BAC3-730020F071BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryCatalogue.UnitTest2", "LibraryCatalogue.UnitTest2\LibraryCatalogue.UnitTest2.csproj", "{8CD10A57-09EC-48B5-A6FD-A5F4CAA96718}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9833C494-159E-4B0B-BAC3-730020F071BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9833C494-159E-4B0B-BAC3-730020F071BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9833C494-159E-4B0B-BAC3-730020F071BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD10A57-09EC-48B5-A6FD-A5F4CAA96718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD10A57-09EC-48B5-A6FD-A5F4CAA96718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD10A57-09EC-48B5-A6FD-A5F4CAA96718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD10A57-09EC-48B5-A6FD-A5F4CAA96718}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

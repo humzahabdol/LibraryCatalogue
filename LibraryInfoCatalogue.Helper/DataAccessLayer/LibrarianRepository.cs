@@ -33,6 +33,11 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
 
         public Librarian Add(Librarian libEntity)
         {
+            DbEntityEntry dbEntityEntry = _context.Entry(libEntity);
+            if (dbEntityEntry != null && dbEntityEntry.State != EntityState.Detached)
+            {
+                dbEntityEntry.State = EntityState.Added;
+            }
             var dbset = _context.Set<Librarian>();
             dbset.Add(libEntity);
             _context.SaveChanges();
@@ -52,7 +57,8 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
             var librarianInDb = _context.Librarians.SingleOrDefault(l => l.ID == librarian.ID);
             if (librarianInDb != null)
             {
-                librarianInDb = librarian;
+                _context.Entry(librarianInDb).CurrentValues.SetValues(librarian);
+
                 _context.SaveChanges();
                 return true;
             }

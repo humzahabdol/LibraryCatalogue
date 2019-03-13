@@ -16,6 +16,7 @@
         <TextBox x:Name="txt_ISBN" HorizontalAlignment="Left" Height="40" Margin="383,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
         <Button x:Name="btn_checkin" Content="Check In" HorizontalAlignment="Left" Margin="397,291,0,0" VerticalAlignment="Top" Width="94" Height="46" Click="Btn_checkin_Click"/>
         <Button x:Name="btn_checkout" Content="Check out" HorizontalAlignment="Left" Margin="501,291,0,0" VerticalAlignment="Top" Width="97" Height="48" Click="Btn_checkout_Click"/>
+        <Label x:Name="lbl_notFound" Content="Cannot check out" HorizontalAlignment="Left" Margin="397,250,0,0" VerticalAlignment="Top" Height="32" Width="201" Background="#00000000" Foreground="Red"/>
 
     </Grid>
 </Page>

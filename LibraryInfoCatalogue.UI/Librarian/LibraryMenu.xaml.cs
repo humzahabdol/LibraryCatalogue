@@ -51,5 +51,17 @@ namespace LibraryInfoCatalogue.UI
             Home home = new Home();
             frm_libraryMenu.Content = home;
         }
+
+        private void Btn_checkinout_Click(object sender, RoutedEventArgs e)
+        {
+            CheckInOrOut checkInOrOut = new CheckInOrOut();
+            frm_libraryMenu.Content = checkInOrOut;
+        }
+
+        private void Btn_book_Click(object sender, RoutedEventArgs e)
+        {
+            BookPage bookPage = new BookPage();
+            frm_libraryMenu.Content = bookPage;
+        }
     }
 }

@@ -10,33 +10,33 @@ using LibraryOrganizerDB.Entities;
 
 namespace LibraryInfoCatalogue.Helper.DataAccessLayer
 {
-    public class CardholderRepository : IGenericSqlRepository<Cardholder>
+    public class PersonRepository:IGenericSqlRepository<Person>
     {
         private readonly LibraryContext _context;
-        private readonly DbSet<Cardholder> _dbSet;
+        private readonly DbSet<Person> _dbSet;
 
-        public CardholderRepository()
+        public PersonRepository()
         {
             _context = new LibraryContext();
-            _dbSet = _context.Set<Cardholder>();
+            _dbSet = _context.Set<Person>();
         }
-        public List<Cardholder> GetAll()
+        public List<Person> GetAll()
         {
             return _dbSet.AsEnumerable().ToList();
         }
-        public Cardholder Find(int id)
+        public Person Find(int id)
         {
             return _dbSet.Find(id);
         }
 
-        public Cardholder Add(Cardholder libEntity)
+        public Person Add(Person libEntity)
         {
             DbEntityEntry dbEntityEntry = _context.Entry(libEntity);
             if (dbEntityEntry != null && dbEntityEntry.State != EntityState.Detached)
             {
                 dbEntityEntry.State = EntityState.Added;
             }
-            var dbset = _context.Set<Cardholder>();
+            var dbset = _context.Set<Person>();
             dbset.Add(libEntity);
             _context.SaveChanges();
             return libEntity;
@@ -44,19 +44,18 @@ namespace LibraryInfoCatalogue.Helper.DataAccessLayer
 
         public void Delete(int id)
         {
-            var cardholder = _dbSet.Find(id);
-            _dbSet.Remove(cardholder);
+            var person = _dbSet.Find(id);
+            _dbSet.Remove(person);
             _context.SaveChanges();
 
         }
-
-        public bool Update(Cardholder cardholder)
+        public bool Update(Person person)
         {
-            var cardholderInDb = _context.Cardholders.SingleOrDefault(ch => ch.ID == cardholder.ID);
-            if (cardholderInDb != null)
+            var personInDb =
+                _context.People.SingleOrDefault(a => a.PersonID == person.PersonID);
+            if (personInDb != null)
             {
-                //cardholderInDb = cardholder;
-                _context.Entry(cardholderInDb).CurrentValues.SetValues(cardholder);
+                _context.Entry(personInDb).CurrentValues.SetValues(person);
 
                 _context.SaveChanges();
                 return true;

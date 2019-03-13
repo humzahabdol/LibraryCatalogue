@@ -59,6 +59,10 @@ namespace LibraryInfoCatalogue.Helper.BusinessClass
             return "No";
         }
 
+        public int CheckoutCount(string isbn)
+        {
+            return _checkOutLogSqlRepository.GetAll().Count(x => x.Book.ISBN == isbn);
+        }
         public List<string> SplitKeywords(string s)
         {
             char[] delimiters = { ';' };
@@ -82,5 +86,6 @@ namespace LibraryInfoCatalogue.Helper.BusinessClass
         string CanCheckOutBook(Book book);
         int CountAvailable(Book book);
         List<string> SplitKeywords(string s);
+        int CheckoutCount(string isbn);
     }
 }

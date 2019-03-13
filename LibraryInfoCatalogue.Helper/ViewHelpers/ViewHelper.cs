@@ -33,6 +33,10 @@ namespace LibraryInfoCatalogue.Helper.BusinessClass
             {
                 if (ctl.GetType() == typeof(TextBox))
                     ((TextBox)ctl).Text = String.Empty;
+                //if (ctl.GetType() == typeof(ListView))
+                //{
+                //    ((ListView)ctl).Items.Clear();
+                //}
             }
         }
     }

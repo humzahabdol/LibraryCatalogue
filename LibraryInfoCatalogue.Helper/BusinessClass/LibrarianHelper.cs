@@ -7,6 +7,7 @@ namespace LibraryInfoCatalogue.Helper.BusinessClass
 {
     public class LibrarianHelper : ILibrarianHelper
     {
+        private readonly  ExceptionHelper _exceptionHelper = new ExceptionHelper();
         private readonly IGenericSqlRepository<Librarian> _libSqlRepository = new LibrarianRepository();
         private readonly IGenericSqlRepository<CheckOutLog> _checkoutlogSqlRepository = new CheckoutLogRepository();
 
@@ -33,17 +34,29 @@ namespace LibraryInfoCatalogue.Helper.BusinessClass
         {
             //1). A card holder with overdue books will not be allowed to check-out
             //any books until the overdue book(s) are returned;
+            try
+            {
+                var checkOutLog = _checkoutlogSqlRepository.GetAll().Find(x => x.BookID == book.BookID &&
+                                                                               x.CardholderID == cardholderId);
+                if (checkOutLog != null)
+                {
+                    if (DateTime.Now > checkOutLog.CheckOutDate.AddDays(30)) return false;
 
-            var checkOutLog = _checkoutlogSqlRepository.GetAll().Find(x => x.BookID == book.BookID &&
-                                                                         x.CardholderID == cardholderId);
-            if (DateTime.Now > checkOutLog.CheckOutDate.AddDays(30)) return false;
+                    //2). No book can be checked out if no copies are available.
+                    //Note that several options will require you to calculate how many copies of a specific book are available.
+                    var checkoutLogs = _checkoutlogSqlRepository.GetAll()
+                        .Count(x => x.BookID == book.BookID && x.CardholderID == cardholderId);
+                    if (checkoutLogs >= book.NumberOfCopies) return false;
+                }
 
-            //2). No book can be checked out if no copies are available.
-            //Note that several options will require you to calculate how many copies of a specific book are available.
-            var checkoutLogs = _checkoutlogSqlRepository.GetAll().Count(x => x.BookID == book.BookID && x.CardholderID == cardholderId);
-            if (checkoutLogs >= book.NumberOfCopies) return false;
-
-            return true;
+                return true;
+            }
+            catch (Exception e)
+            {
+                var t = _exceptionHelper.PrintAllInnerException(e);
+                return false;
+            }
+            
         }
         
     }

@@ -15,7 +15,6 @@ namespace LibraryInfoCatalogue.UI
     public partial class SearchBook : Page
     {
         private readonly BookRepository _bookRepository;
-    
         private readonly BookHelper _bookHelper;
         private readonly bool _isLibrarian;
         private readonly ViewHelper _viewHelper;

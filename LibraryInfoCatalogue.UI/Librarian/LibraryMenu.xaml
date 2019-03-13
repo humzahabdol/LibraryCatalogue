@@ -14,7 +14,8 @@
         <Button x:Name="btn_searchBook" Content="Search" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Width="91" Height="27" Click="Btn_searchBook_Click"/>
         <Button x:Name="btn_logout" Content="Log Out" HorizontalAlignment="Left" Margin="10,411,0,0" VerticalAlignment="Top" Width="91" Height="27" Click="Btn_logout_Click"/>
         <Button x:Name="btn_home" Content="Home" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Width="91" Height="27" Click="Btn_home_Click"/>
-        <Button x:Name="btn_checkinout" Content="Check In/Out" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="91" Height="27" Click="Btn_searchBook_Click"/>
+        <Button x:Name="btn_checkinout" Content="Check In/Out" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top" Width="91" Height="27" Click="Btn_checkinout_Click" />
+        <Button x:Name="btn_book" Content="Book" HorizontalAlignment="Left" Margin="11,216,0,0" VerticalAlignment="Top" Width="91" Height="27" Click="Btn_book_Click" />
 
     </Grid>
 </Page>
